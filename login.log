@@ -1,0 +1,50 @@
+2023-10-30 01:07:20,337 [ERROR] - Exception on /getAToken [GET]
+Traceback (most recent call last):
+  File "/Users/chaudo/Downloads/cd1756-Azure-Applications-project-main/FlaskWebProject/venv/lib/python3.7/site-packages/sqlalchemy/util/_collections.py", line 1030, in __call__
+    return self.registry[key]
+KeyError: 8597836480
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/chaudo/Downloads/cd1756-Azure-Applications-project-main/FlaskWebProject/venv/lib/python3.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/chaudo/Downloads/cd1756-Azure-Applications-project-main/FlaskWebProject/venv/lib/python3.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/chaudo/Downloads/cd1756-Azure-Applications-project-main/FlaskWebProject/venv/lib/python3.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/chaudo/Downloads/cd1756-Azure-Applications-project-main/FlaskWebProject/venv/lib/python3.7/site-packages/flask/_compat.py", line 33, in reraise
+    raise value
+  File "/Users/chaudo/Downloads/cd1756-Azure-Applications-project-main/FlaskWebProject/venv/lib/python3.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/chaudo/Downloads/cd1756-Azure-Applications-project-main/FlaskWebProject/venv/lib/python3.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/chaudo/Downloads/cd1756-Azure-Applications-project-main/FlaskWebProject/views.py", line 98, in authorized
+    user = User.query.filter_by(username="admin").first()
+  File "/Users/chaudo/Downloads/cd1756-Azure-Applications-project-main/FlaskWebProject/venv/lib/python3.7/site-packages/flask_sqlalchemy/__init__.py", line 519, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "/Users/chaudo/Downloads/cd1756-Azure-Applications-project-main/FlaskWebProject/venv/lib/python3.7/site-packages/sqlalchemy/orm/scoping.py", line 78, in __call__
+    return self.registry()
+  File "/Users/chaudo/Downloads/cd1756-Azure-Applications-project-main/FlaskWebProject/venv/lib/python3.7/site-packages/sqlalchemy/util/_collections.py", line 1032, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "/Users/chaudo/Downloads/cd1756-Azure-Applications-project-main/FlaskWebProject/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 3234, in __call__
+    return self.class_(**local_kw)
+  File "/Users/chaudo/Downloads/cd1756-Azure-Applications-project-main/FlaskWebProject/venv/lib/python3.7/site-packages/flask_sqlalchemy/__init__.py", line 138, in __init__
+    bind = options.pop('bind', None) or db.engine
+  File "/Users/chaudo/Downloads/cd1756-Azure-Applications-project-main/FlaskWebProject/venv/lib/python3.7/site-packages/flask_sqlalchemy/__init__.py", line 937, in engine
+    return self.get_engine()
+  File "/Users/chaudo/Downloads/cd1756-Azure-Applications-project-main/FlaskWebProject/venv/lib/python3.7/site-packages/flask_sqlalchemy/__init__.py", line 956, in get_engine
+    return connector.get_engine()
+  File "/Users/chaudo/Downloads/cd1756-Azure-Applications-project-main/FlaskWebProject/venv/lib/python3.7/site-packages/flask_sqlalchemy/__init__.py", line 561, in get_engine
+    self._engine = rv = self._sa.create_engine(sa_url, options)
+  File "/Users/chaudo/Downloads/cd1756-Azure-Applications-project-main/FlaskWebProject/venv/lib/python3.7/site-packages/flask_sqlalchemy/__init__.py", line 966, in create_engine
+    return sqlalchemy.create_engine(sa_url, **engine_opts)
+  File "/Users/chaudo/Downloads/cd1756-Azure-Applications-project-main/FlaskWebProject/venv/lib/python3.7/site-packages/sqlalchemy/engine/__init__.py", line 479, in create_engine
+    return strategy.create(*args, **kwargs)
+  File "/Users/chaudo/Downloads/cd1756-Azure-Applications-project-main/FlaskWebProject/venv/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 87, in create
+    dbapi = dialect_cls.dbapi(**dbapi_args)
+  File "/Users/chaudo/Downloads/cd1756-Azure-Applications-project-main/FlaskWebProject/venv/lib/python3.7/site-packages/sqlalchemy/connectors/pyodbc.py", line 37, in dbapi
+    return __import__("pyodbc")
+ImportError: dlopen(/Users/chaudo/Downloads/cd1756-Azure-Applications-project-main/FlaskWebProject/venv/lib/python3.7/site-packages/pyodbc.cpython-37m-darwin.so, 0x0002): Library not loaded: /usr/local/opt/unixodbc/lib/libodbc.2.dylib
+  Referenced from: <A9A374E2-A1EF-3BFF-8F5E-25E1B3538ADE> /Users/chaudo/Downloads/cd1756-Azure-Applications-project-main/FlaskWebProject/venv/lib/python3.7/site-packages/pyodbc.cpython-37m-darwin.so
+  Reason: tried: '/usr/local/opt/unixodbc/lib/libodbc.2.dylib' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64')), '/System/Volumes/Preboot/Cryptexes/OS/usr/local/opt/unixodbc/lib/libodbc.2.dylib' (no such file), '/usr/local/opt/unixodbc/lib/libodbc.2.dylib' (mach-o file, but is an incompatible architecture (have 'arm64', need 'x86_64')), '/usr/local/lib/libodbc.2.dylib' (no such file), '/usr/lib/libodbc.2.dylib' (no such file, not in dyld cache)
