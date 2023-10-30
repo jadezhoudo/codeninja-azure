@@ -102,10 +102,8 @@ def authorized():
 @app.route('/logout')
 def logout():
     logout_user()
-    if session.get("user"): # Used MS Login
-        # Wipe out user and its token cache from session
-        session.clear()
-        # Also logout from your tenant's web session
+    if session.get("user"): # Used MS Login 
+        session.clear() 
         return redirect(
             Config.AUTHORITY + "/oauth2/v2.0/logout" +
             "?post_logout_redirect_uri=" + url_for("login", _external=True))
